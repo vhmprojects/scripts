@@ -1,3 +1,10 @@
+#include <iostream>
+#include <locale.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+...
+
 setlocale(LC_ALL, "Portuguese");
 
 int matriz[3][3], myInt, result;
