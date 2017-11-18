@@ -1,0 +1,35 @@
+setlocale(LC_ALL, "Portuguese");
+
+int matriz[3][3], myInt, result;
+
+for (int a = 0; a < 3; a++)
+    for (int b = 0; b < 3; b++)
+    {
+        printf ("Matriz[%d][%d] => ", a, b);
+        result = scanf("%d", &myInt);
+
+        if (result != EOF)
+            matriz[a][b] = myInt;
+    }
+
+int menor = matriz[0][0];
+int linha = 0;
+
+for (int a = 0; a < 3; a++)
+    for (int b = 0; b < 3; b++)
+    {
+        if(matriz[a][b] < menor)
+        {
+            menor = matriz[a][b];
+            linha = a;
+        }
+    }
+
+for (int a = 0; a < 3; a++)
+{
+    for (int b = 0; b < 3; b++)
+        printf ("%d ", matriz[a][b]);
+    printf ("\n");
+}
+
+printf ("A linha com menor número é: %d\n", ++linha);
