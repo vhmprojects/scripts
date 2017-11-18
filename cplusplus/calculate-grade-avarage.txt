@@ -1,0 +1,46 @@
+#include <iostream>
+#include <locale.h>
+#include <stdio.h>
+
+...
+
+setlocale(LC_ALL, "Portuguese");
+
+float nota1, nota2, nota3, me, ma;
+
+printf("Digite 3 notas\n");
+
+scanf("%f", &nota1);
+scanf("%f", &nota2);
+scanf("%f", &nota3);
+
+me = (nota1 + nota2 + nota3) / 3;
+
+ma = (nota1 +  nota2*2 + nota3*3 + me)/7;
+
+if (ma >= 9)
+{
+    printf("Média de aproveitamento: A");
+    return 0;
+}
+
+if (ma >= 7.5 && ma < 9)
+{
+    printf("Média de aproveitamento: B");
+    return 0;
+}
+
+if (ma >= 6 && ma < 7.5)
+{
+    printf("Média de aproveitamento: C");
+    return 0;
+}
+
+if (ma >= 5 && ma < 6)
+{
+    printf("Média de aproveitamento: D");
+    return 0;
+}
+
+printf("Média de aproveitamento: E");
+return 0;
