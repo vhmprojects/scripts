@@ -1,0 +1,29 @@
+#include <locale.h>
+#include <iostream>
+
+using namespace std;
+
+int Fibonacci(int);
+
+int main(void)
+{
+    int number;
+
+    setlocale(LC_ALL, "Portuguese");
+
+    cout << "Entre com um valor inteiro: ";
+    cin >> number;
+    if (number < 0)
+        cout << "Este número não é inteiro.\n";
+    else
+        cout << "Posição " << number << " tem valor: " << Fibonacci(number) << endl;
+}
+
+int Fibonacci(int x)
+{
+    if (x < 2)
+    {
+        return x;
+    }
+    return (Fibonacci (x - 1) + Fibonacci (x - 2));
+}
