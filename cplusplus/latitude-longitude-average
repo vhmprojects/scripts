@@ -1,0 +1,65 @@
+#include <iostream>
+#include <math.h>
+#include <locale.h>
+
+float localat(float x, float y, float z);
+float localon(float x, float y);
+
+int main()
+{
+    setlocale(LC_ALL, "Portuguese");
+
+    float lon[3], lat[3], x[3],y[3],z[3], x_avg, y_avg, z_avg, sumx, sumy, sumz, lat_avg, lon_avg;
+    int cont = 3;
+
+    for (int i = 0; i < 3; i++)
+    {
+        std::cout << "Digite sua Latitude:" << std::endl;
+        std::cin >> lat[i];
+        std::cout << "Digite sua Longitude:" << std::endl;
+        std::cin >> lon[i];
+    }
+
+    for (int i = 0; i < 3; i++)
+    {
+       x[i] = cos(lat[i]) * cos(lon[i]);
+       y[i] = cos(lat[i]) * sin(lon[i]);
+       z[i] = sin(lat[i]);
+    }
+
+    for (int i = 0; i < 3; i++)
+    {
+        sumx += x[i];
+        sumy += y[i];
+        sumz += z[i];
+    }
+
+    x_avg = sumx / cont;
+    y_avg = sumy / cont;
+    z_avg = sumz / cont;
+
+    lat_avg = localat(x_avg, y_avg, z_avg);
+    lon_avg = localon(x_avg, y_avg);
+
+    std::cout << "Latidude: " << lat_avg << std::endl;
+    std::cout << "Longitude: " << lon_avg;
+
+    return 0;
+}
+
+float localat(float x, float y, float z)
+{
+    float lat;
+
+    lat = atan(z / sqrt(pow(x, 2) + pow(y, 2)));
+    return lat;
+}
+
+float localon(float x, float y)
+{
+    float lon;
+
+    lon = atan(y / x);
+
+    return lon;
+}
