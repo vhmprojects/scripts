@@ -1,4 +1,5 @@
 #-*- coding: utf-8-*-
+#pip3 install chatterbot
 
 from chatterbot.trainers import ListTrainer
 from chatterbot import ChatBot
